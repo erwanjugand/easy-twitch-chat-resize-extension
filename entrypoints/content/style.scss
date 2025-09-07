@@ -1,0 +1,61 @@
+// Resizer
+.chat-shell {
+  display: flex;
+
+  > :not(.custom-chat-shell__resizer) {
+    width: 100%;
+  }
+}
+
+.custom-chat-shell__resizer {
+  flex: 2px 0 0;
+  order: -1;
+  cursor: ew-resize;
+}
+
+// Twitch selection overrides
+.custom-chat-locked-body {
+  user-select: none !important;
+
+  .channel-root__right-column,
+  .toggle-visibility__right-column--expanded {
+    transition-duration: 0s !important;
+  }
+}
+
+// Twitch width overrides
+$width: var(--custom-chat-width, 34rem);
+
+@media screen and (width >= 920px) {
+  .channel-root--hold-chat + .persistent-player,
+  .channel-root--watch-chat + .persistent-player,
+  .channel-root__info--with-chat .channel-info-content,
+  .channel-root__player--with-chat {
+    width: calc(100% - $width) !important;
+  }
+}
+
+.chat-shell__expanded {
+  min-width: $width !important;
+}
+
+.right-column--beside .channel-root__right-column {
+  width: $width !important;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.toggle-visibility__right-column--expanded {
+  transform: translateX(calc(-1 * $width * var(--writing-dir-flip))) !important;
+}
+
+.right-column--theatre.right-column--beside {
+  width: $width !important;
+}
+
+.custom-persistent-player--theatre {
+  width: calc(100% - $width) !important;
+}
+
+.channel-root__right-column.channel-root__right-column--expanded {
+  transform: translateX(calc(-1 * $width)) translateZ(0) !important;
+}

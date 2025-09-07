@@ -1,0 +1,37 @@
+{
+  "name": "twitch-chat-resize-extension",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "compile": "tsc --noEmit",
+    "postinstall": "wxt prepare",
+    "check:prettier": "prettier --check .",
+    "check:lint": "oxlint",
+    "check:stylelint": "stylelint **/*.{scss,vue}",
+    "check:ts": "tsc --noEmit",
+    "check:all": "pnpm check:prettier && pnpm check:lint && pnpm check:stylelint && pnpm check:ts",
+    "fix:prettier": "prettier --log-level warn --write .",
+    "fix:lint": "pnpm check:lint --fix --fix-suggestions",
+    "fix:stylelint": "pnpm check:stylelint --fix",
+    "fix:all": "pnpm fix:prettier && pnpm fix:lint && pnpm fix:stylelint"
+  },
+  "devDependencies": {
+    "@prettier/plugin-oxc": "0.0.4",
+    "oxlint": "1.14.0",
+    "prettier": "3.6.2",
+    "sass": "1.92.1",
+    "stylelint": "16.24.0",
+    "stylelint-config-recess-order": "7.3.0",
+    "stylelint-config-standard-scss": "15.0.1",
+    "stylelint-order": "7.0.0",
+    "typescript": "5.9.2",
+    "wxt": "0.20.11"
+  }
+}
